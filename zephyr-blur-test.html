@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Stylesheet link -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Script tag goes below stylesheet link -->
+    <script src="app.js"></script>
+    <!-- Title -->
+    <title>Dynamic Blur Effect</title>
+
+<style>
+
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #777;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+section {
+  padding: 50px;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Specific styles for demo purposes */
+header {
+  background-color: #f9c74f;
+  color: white;
+  padding: 2rem;
+}
+
+main {
+  /* Position: fixed keeps content stationary */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px;
+}
+
+#content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  border: 2px solid black;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+#bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/orange-lines-bg-test.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+/* Media queries for mobile devices */
+@media only screen and (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1rem;
+  }
+  
+  footer {
+    margin-top: 1rem;
+  }
+}
+
+/* Media query for large screens */
+@media only screen and (min-width: 1200px) {
+  header {
+    padding: 3rem;
+  }
+  
+  .section {
+    padding: 3rem;
+  }
+  
+  footer {
+    margin-top: 3rem;
+  }
+}
+
+</style>
+
+  </head>
+  <body>
+    <!-- Container element with content inside -->
+    <div id="container">
+      <header>Header Content Here</header>
+      <main id="content">
+        <section class="section section--one">Section One Content Here</section>
+        <section class="section section--two">Section Two Content Here</section>
+        <section class="section section--three">Section Three Content Here</section>
+        <section class="section section--one">Section One Content Here</section>
+        <section class="section section--two">Section Two Content Here</section>
+        <section class="section section--three">Section Three Content Here</section>
+        <section class="section section--one">Section One Content Here</section>
+        <section class="section section--two">Section Two Content Here</section>
+        <section class="section section--three">Section Three Content Here</section>
+        <section class="section section--one">Section One Content Here</section>
+        <section class="section section--two">Section Two Content Here</section>
+        <section class="section section--three">Section Three Content Here</section>
+        <section class="section section--one">Section One Content Here</section>
+        <section class="section section--two">Section Two Content Here</section>
+        <section class="section section--three">Section Three Content Here</section>
+        <section class="section section--one">Section One Content Here</section>
+        <section class="section section--two">Section Two Content Here</section>
+        <section class="section section--three">Section Three Content Here</section>
+      </main>
+      <!-- Background image element -->
+      <div id="bg" aria-hidden="true"></div>
+    </div>
+
+    <script>
+        // Scaling factor variable
+        let scalingFactor = 1;
+        const bgElement = document.getElementById("bg");
+        
+        function handleScroll() {
+          const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          let percentScrolled = scrollPosition / ((innerHeight || document.documentElement.clientHeight) * scalingFactor);
+          bgElement.style.transform = "translateY(-" + percentScrolled * 100 + "%)";
+        }
+        
+        // Event listener for when the user starts scrolling
+        window.addEventListener("scroll", handleScroll);
+      </script>
+  </body>
+</html>
